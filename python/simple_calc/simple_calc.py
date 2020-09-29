@@ -74,6 +74,7 @@ operators = {
 # Functions
 # ------------------------------------------------------------------------
 def get_user_input():
+    """Get input from the user:  two numbers and operator."""
     
     try:
         number1  = float(input("Enter the first number: "))
@@ -95,13 +96,17 @@ def get_user_input():
 if __name__ == "__main__":
     
     while True:
+        # Get user input
         (number1, number2, op) = get_user_input()
 
+        # Get function to execute from operators dictionary
         function = operators.get(op, None)
-        
+
+        # Check if there was an error; Exit the program        
         if (number1 is None) or (number2 is None) or (function is None):
             print("Done")
             break
 
+        # Calculate results and print result
         print(function(number1, number2))
     
