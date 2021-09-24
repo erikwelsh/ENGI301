@@ -4,7 +4,7 @@
 Simple Calculator
 --------------------------------------------------------------------------
 License:   
-Copyright 2020 Erik Welsh (welsh [at] rice [dot] edu)
+Copyright 2021 <NAME>
 
 Redistribution and use in source and binary forms, with or without 
 modification, are permitted provided that the following conditions are met:
@@ -51,7 +51,6 @@ Error conditions:
 
 --------------------------------------------------------------------------
 """
-import operator
 
 # ------------------------------------------------------------------------
 # Constants
@@ -62,31 +61,10 @@ import operator
 # Global variables
 # ------------------------------------------------------------------------
 
-operators = {
-    "+"  : operator.add,
-    "-"  : operator.sub,
-    "*"  : operator.mul,
-    "/"  : operator.truediv
-}
-
 
 # ------------------------------------------------------------------------
 # Functions
 # ------------------------------------------------------------------------
-def get_user_input():
-    """Get input from the user:  two numbers and operator."""
-    
-    try:
-        number1  = float(input("Enter the first number: "))
-        number2  = float(input("Enter the second number: "))
-        operator = input("Enter the operator (valid operators are +, -, *, and /): ")
-    
-        return (number1, number2, operator)
-    except:
-        print("Invalid Input")
-        return (None, None, None)
-
-# End def
 
 
 # ------------------------------------------------------------------------
@@ -94,19 +72,4 @@ def get_user_input():
 # ------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    
-    while True:
-        # Get user input
-        (number1, number2, op) = get_user_input()
-
-        # Get function to execute from operators dictionary
-        function = operators.get(op, None)
-
-        # Check if there was an error; Exit the program        
-        if (number1 is None) or (number2 is None) or (function is None):
-            print("Done")
-            break
-
-        # Calculate results and print result
-        print(function(number1, number2))
-    
+    pass
