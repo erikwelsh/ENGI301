@@ -4,7 +4,7 @@
 Simple Calculator
 --------------------------------------------------------------------------
 License:   
-Copyright 2021 <NAME>
+Copyright 2022 - <NAME>
 
 Redistribution and use in source and binary forms, with or without 
 modification, are permitted provided that the following conditions are met:
@@ -52,24 +52,53 @@ Error conditions:
 --------------------------------------------------------------------------
 """
 
+# NOTE - Add import statements to allow access to Python library functions
+
 # ------------------------------------------------------------------------
 # Constants
 # ------------------------------------------------------------------------
 
+# NOTE - No constants are needed for this example 
 
 # ------------------------------------------------------------------------
 # Global variables
 # ------------------------------------------------------------------------
 
+# NOTE - Need a global variable to map an operator string (e.g. "+") to 
+# NOTE - the appropriate function.
 
 # ------------------------------------------------------------------------
 # Functions
 # ------------------------------------------------------------------------
 
+# NOTE - Add function "get_user_input()".  This function will:
+# NOTE -     """Get input from the user.
+# NOTE -          Returns tuple:  (number, number, function) or
+# NOTE -          (None, None, None) if inputs invalid
+# NOTE -     """
+# NOTE - 
+# NOTE - User input is generally returned as a string and must be translated.
 
 # ------------------------------------------------------------------------
 # Main script
 # ------------------------------------------------------------------------
 
+# NOTE - The python variable "__name__" is provided by the language and can 
+# NOTE - be used to determine how the file is being executed.  For example,
+# NOTE - if the program is being executed on the command line:
+# NOTE -   python3 simple_calc.py
+# NOTE - then the "__name__" will be the string:  "__main__".  If the file 
+# NOTE - is being imported into another python file:
+# NOTE -   import simple_calc
+# NOTE - the the "__name__" will be the module name, i.e. the string "simple_calc"
+
 if __name__ == "__main__":
+    # NOTE - Use "pass" statements to allow code to be run without having to 
+    # NOTE - fill out the contents.  This pass statement should be removed    
     pass
+
+    # NOTE - Need to add main calculator functionality:
+    # NOTE -   - Use a loop construct to repeat the operation
+    # NOTE -   - Get the input from the user (i.e. use function created above)    
+    # NOTE -   - Check that all inputs are valid
+    # NOTE -   - Execute the function on the numbers and print the results

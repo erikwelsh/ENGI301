@@ -4,7 +4,7 @@
 Simple Calculator
 --------------------------------------------------------------------------
 License:   
-Copyright 2021 <NAME>
+Copyright 2022 - Erik Welsh
 
 Redistribution and use in source and binary forms, with or without 
 modification, are permitted provided that the following conditions are met:
@@ -51,39 +51,58 @@ Error conditions:
 
 --------------------------------------------------------------------------
 """
+
+# NOTE - Add import statements to allow access to Python library functions
+
 import operator
 
 # ------------------------------------------------------------------------
 # Constants
 # ------------------------------------------------------------------------
 
+# NOTE - No constants are needed for this example 
 
 # ------------------------------------------------------------------------
 # Global variables
 # ------------------------------------------------------------------------
 
+# NOTE - Need a global variable to map an operator string (e.g. "+") to 
+# NOTE - the appropriate function.
+
 operators = {
-    "+"  : operator.add,
-    "-"  : operator.sub,
-    "*"  : operator.mul,
-    "/"  : operator.truediv
+    "+" : operator.add,
+    "-" : operator.sub,
+    "*" : operator.mul,
+    "/" : operator.truediv
 }
 
 # ------------------------------------------------------------------------
 # Functions
 # ------------------------------------------------------------------------
+
+# NOTE - Add function "get_user_input()".  This function will:
+# NOTE -     """Get input from the user.
+# NOTE -          Returns tuple:  (number, number, function) or
+# NOTE -          (None, None, None) if inputs invalid
+# NOTE -     """
+# NOTE - 
+# NOTE - User input is generally returned as a string and must be translated.
+
 def get_user_input():
-    """Get input from the user:  two numbers and operator."""
-    
+    """Get input from the user.
+         Returns tuple: (number, number, function) or 
+         (None, None, None) if the inputs are invalid
+    """
     try:
-        number1  = float(input("Enter the first number:  "))
-        number2  = float(input("Enter the second number: "))
-        operator = input("Enter the operator (valid operators are +, -, *, and /): ")
+        number1 = float(input("Enter first number : "))
+        number2 = float(input("Enter second number: "))
+        op      = input("Enter function (valid values are +, -, *, /): ")
     
-        return (number1, number2, operator)
+        func    = operators.get(op)
     except:
-        print("Invalid Input")
         return (None, None, None)
+    
+    return (number1, number2, func)
 
 # End def
 
@@ -92,20 +111,28 @@ def get_user_input():
 # Main script
 # ------------------------------------------------------------------------
 
+# NOTE - The python variable "__name__" is provided by the language and can 
+# NOTE - be used to determine how the file is being executed.  For example,
+# NOTE - if the program is being executed on the command line:
+# NOTE -   python3 simple_calc.py
+# NOTE - then the "__name__" will be the string:  "__main__".  If the file 
+# NOTE - is being imported into another python file:
+# NOTE -   import simple_calc
+# NOTE - the the "__name__" will be the module name, i.e. the string "simple_calc"
+
 if __name__ == "__main__":
-    
+    # NOTE - Need to add main calculator functionality:
+    # NOTE -   - Use a loop construct to repeat the operation
+    # NOTE -   - Get the input from the user (i.e. use function created above)    
+    # NOTE -   - Check that all inputs are valid
+    # NOTE -   - Execute the function on the numbers and print the results
+
     while True:
-        # Get user input
-        (number1, number2, operator) = get_user_input()
-
-        # Get function to execute from operators dictionary
-        function = operators.get(operator, None)
-
-        # Check if there was an error; Exit the program        
-        if (number1 is None) or (number2 is None) or (function is None):
-            print("Exiting")
+        (num1, num2, func) = get_user_input()
+        
+        if (num1 == None) or (num2 == None) or (func == None):
+            print("Invalid input")
             break
+        
+        print(func(num1, num2))
 
-        # Calculate results and print result
-        print(function(number1, number2))
-    
