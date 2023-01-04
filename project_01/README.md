@@ -1,4 +1,4 @@
-<h1> Example Project Name <h1>
+<h1> Example Project Name </h1>
 
 This will be the location of the README for ENGI301 Project 1
 
